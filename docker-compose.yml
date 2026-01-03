@@ -1,0 +1,25 @@
+services:
+  filebrowser:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: filebrowser-dev
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount a directory for file storage
+      - ./data:/srv
+      # Persist the database directory
+      - ./db:/app/data
+    environment:
+      - FB_DATABASE=/app/data/filebrowser.db
+      - FB_ROOT=/srv
+      - FB_PORT=8080
+      - FB_ADDRESS=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - filebrowser-network
+
+networks:
+  filebrowser-network:
+    driver: bridge

@@ -1,7 +1,53 @@
-.venv
-dist
+# Existing .dockerignore content
+.git
+.gitignore
+.github
+*.md
+!README.md
+LICENSE
+CHANGELOG.md
+CODE-OF-CONDUCT.md
+CONTRIBUTING.md
+SECURITY.md
+
+# Development files
+.vscode
 .idea
-frontend/node_modules
-frontend/dist
+*.swp
+*.swo
+*~
+
+# Build artifacts
+dist/
+build/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test files
+*_test.go
+test/
+coverage.txt
+
+# Frontend development
+frontend/node_modules/
+frontend/.nuxt/
+frontend/dist/
+frontend/.cache/
+
+# Database
+*.db
 filebrowser.db
-docs/index.md
+
+# Data directory
+data/
+
+# Docker
+docker-compose.yml
+Dockerfile.dev
+BUILD_AND_TEST.md
+
+# Plans and documentation
+plans/
+QUOTA_IMPLEMENTATION_SUMMARY.md
